@@ -37,7 +37,6 @@ public class GameDaoImpl extends DBUtil implements GameDao {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			closeAll(conn, pre, rs);
