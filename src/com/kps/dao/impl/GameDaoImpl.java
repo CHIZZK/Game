@@ -75,78 +75,6 @@ public class GameDaoImpl extends DBUtil implements GameDao {
 
 	}
 
-//	@Override
-//	public List<Game> selectGameByName( String name) {
-//		   List<Game> games  =new ArrayList<>();
-//		try {
-//			conn=DBUtil.getConnection();
-//		    String  sql="select * from games where name=?";
-//			pre=conn.prepareStatement(sql);
-//			pre.setString(1, name);
-//			rs=pre.executeQuery();
-//			while(rs.next()) {
-//				Game game =new Game();
-//				game.setId(rs.getInt(1));
-//				game.setName(rs.getString(2));
-//				game.setType(rs.getString(3));
-//				game.setCompany(rs.getString(4));
-//				game.setYear(rs.getInt(5));
-//				games.add(game);
-//			}
-//				
-//		
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			
-//		}finally {
-//			closeAll(conn, pre, rs);
-//		}
-//		return games;
-//	
-//		
-//	}
-//	@Override
-//	public List<Game> selectGameByName() {
-//		String sql="select * from  games ";
-//		return getPetStoreInfosBySql(sql, null);
-//		
-//	}
-//	
-//	public   List<Game>   getPetStoreInfosBySql(String sql,Object...params){
-//
-//		Connection  connection=null;
-//		PreparedStatement  preparedStatement=null;
-//		ResultSet    resultSet=null;
-//		List<Game>  games=new ArrayList<Game>();
-//		try {
-//			connection=DBUtil.getConnection();
-//			preparedStatement=connection.prepareStatement(sql);
-//			if (params!=null) {
-//				for (int i = 0; i < params.length; i++) {
-//					Object object = params[i];
-//					preparedStatement.setObject(i+1, params[i]);
-//				}
-//			}
-//			resultSet=preparedStatement.executeQuery();
-//		   while (resultSet.next()) {
-//			  Game   game=new Game();
-//			   game.setId(resultSet.getInt(1));
-//			   game.setName(resultSet.getString(2));
-//			   game.setType(resultSet.getString(3));
-//			   game.setCompany(resultSet.getString(4));
-//			   game.setYear(resultSet.getInt(5));
-//			   games.add(game);
-//	}}catch (Exception e) {
-//		// TODO: handle exception
-//	
-//		   }
-//		finally {
-//			closeAll(connection, preparedStatement, resultSet);		
-//		}
-//		return games;
-//
-//}
 	@Override
 	public boolean selectGameByName(Game game) {
 		try {
@@ -155,7 +83,6 @@ public class GameDaoImpl extends DBUtil implements GameDao {
 			String sql = "select * from games where  name=?";
 			pre = conn.prepareStatement(sql);
 			pre.setString(1, game.getName());
-
 			rs = pre.executeQuery();
 
 			int count = 0;
@@ -184,7 +111,7 @@ public class GameDaoImpl extends DBUtil implements GameDao {
 			pre = conn.prepareStatement(sql);
 			pre.setString(1, name);
 
-			int count=0;
+			int count = 0;
 			rs = pre.executeQuery();
 			while (rs.next()) {
 				count++;
